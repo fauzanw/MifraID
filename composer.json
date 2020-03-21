@@ -1,0 +1,15 @@
+{
+    "require": {
+        "illuminate/database": "^7.2",
+        "filp/whoops": "^2.7"
+    },
+    "autoload": {
+        "classmap": [
+            "App/Config",
+            "App/Controllers",
+            "App/Models",
+
+            "vendor/services"
+        ]
+    }
+}
