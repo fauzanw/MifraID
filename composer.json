@@ -1,4 +1,14 @@
 {
+    "name": "dominic404/MifraID",
+    "type": "framework",
+    "description": "Mini framework for building web app",
+    "keywords": [
+        "framework",
+        "MifraID",
+        "mifraid",
+        "mifra id"
+    ],
+    "license": "MIT",
     "require": {
         "illuminate/database": "^7.2",
         "filp/whoops": "^2.7"
