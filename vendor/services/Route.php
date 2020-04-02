@@ -1,5 +1,10 @@
 <?php 
 
+namespace App\Services;
+
+use ErrorHandler;
+use Exception;
+
 /**
  * 
  * MifraID released under the MIT License
@@ -31,6 +36,16 @@ class Route {
     protected $controller = '';
     protected $method     = 'index';
     protected $params     = [];
+
+    private static $instance;
+    public static function getInstance()
+    {
+        if(!isset(self::$instance)) {
+         self::$instance = new Route();   
+        }
+        return self::$instance;
+    }
+
     public function __construct()
     {
         global $config;
@@ -61,7 +76,7 @@ class Route {
             if($config['dev_env'] == "production") {
                 return ErrorHandler::show_404();
             }else{
-                throw new Error("Controller: [$this->controller] not found");
+                throw new Exception("Controller: [$this->controller] not found");
             }
         }
 
@@ -72,9 +87,9 @@ class Route {
                 unset($url[1]);
             }else{
                 if($config['dev_env'] == "production") {
-                    return ErrorHandler::show_error("Method: [$url[1]] not found!");
+                    return ErrorHandler::show_404();
                 }else{
-                    throw new Error("Method: [$url[1]] not found");
+                    throw new Exception("Method: [$url[1]] not found");
                 }
             }
         }

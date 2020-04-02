@@ -1,6 +1,7 @@
 <?php 
 
-require_once 'View.php';
+namespace App\Services;
+use App\Services\View;
 
 /**
  * 

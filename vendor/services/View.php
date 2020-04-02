@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Services;
+
 class View {
     protected $template_dir = __DIR__ . '/../../App/Views';
     protected $vars = array();

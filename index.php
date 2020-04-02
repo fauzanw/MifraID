@@ -25,7 +25,11 @@
  * SOFTWARE.
  * @author Fauzanw
  * @license	https://opensource.org/licenses/MIT	MIT License
- */ 
+ */
+
+use App\Services\Route;
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
 
 //  Load dependency
 require_once "vendor/autoload.php";
@@ -36,10 +40,14 @@ require_once "vendor/helpers/url.php";
 // require_once "vendor/services/View.php";
 
 /**
- * Initialize Class
+ * Initialize Whoops Class To Error Handler
  * */ 
-$whoops = new \Whoops\Run;
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops = new Run();
+$whoops->pushHandler(new PrettyPageHandler);
 $whoops->register();
-new Route();
+
+/**
+ * Get Instance Class from Route Class
+ * */ 
+Route::getInstance();
 global $config;
